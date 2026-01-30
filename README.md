@@ -49,28 +49,6 @@ A web application built using **React** and **KonvaJS** that allows authenticate
 
 ---
 
-## 📁 Project Structure
-
-rectangle-annotation-app/
-├── frontend/
-│   └── src/
-│       ├── App.jsx
-│       ├── Login.jsx
-│       ├── Canvas.jsx
-│       ├── CanvasUI.jsx
-│       ├── Header.jsx
-│       ├── InfoPanel.jsx
-│       ├── api.js
-│       ├── main.jsx
-│       └── styles.css
-├── backend/
-│   ├── index.js
-│   ├── model.js
-│   └── package.json
-└── README.md
-
----
-
 ## ⚙️ Local Setup Instructions
 
 ### 📥 Clone Repository
