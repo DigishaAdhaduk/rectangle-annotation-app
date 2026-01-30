@@ -4,17 +4,17 @@ import jwt from "jsonwebtoken"
 import cors from "cors"
 import { User, Rect } from "./model.js"
 
-mongoose.connect("mongodb://127.0.0.1/rect")
-  .then(() => console.log("mongo connected"))
-  .catch(e => console.log("mongo error", e))
-
 const app = express()
 app.use(cors())
 app.use(express.json())
 
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("mongo connected"))
+  .catch(e => console.log("mongo error", e))
+
 function auth(req, res, next) {
   try {
-    const d = jwt.verify(req.headers.authorization, "key")
+    const d = jwt.verify(req.headers.authorization, process.env.JWT_SECRET)
     req.uid = d.id
     next()
   } catch {
@@ -36,9 +36,10 @@ app.post("/login", async (req, res) => {
     })
   }
 
-  const t = jwt.sign({ id: u._id }, "key")
+  const t = jwt.sign({ id: u._id }, process.env.JWT_SECRET)
   res.json({ tok: t })
 })
+
 app.get("/bg", auth, async (req, res) => {
   const u = await User.findById(req.uid)
   res.json({ bg: u.bg || "" })
@@ -77,6 +78,7 @@ app.delete("/annotations/:id", auth, async (req, res) => {
   res.sendStatus(200)
 })
 
-app.listen(4000, () => {
-  console.log("backend running on 4000")
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => {
+  console.log("backend running on " + PORT)
 })
