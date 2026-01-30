@@ -113,8 +113,10 @@ POST /annotations – Create annotation
 PUT /annotations/:id – Update annotation  
 DELETE /annotations/:id – Delete annotation  
 GET /bg – Fetch background image  
-POST /bg – Save background image  
-
+POST /bg – Save background image 
+ 
+All protected routes require:
+Authorization: <JWT_TOKEN>
 ---
 
 ## 🚀 Deployment
@@ -126,19 +128,26 @@ Vercel Deployment URL:
 https://rectangle-annotation-app.vercel.app
 
 ### 🖧 Backend
-Backend is deployed using a cloud platform such as Render / Railway / Cyclic and connected to a hosted MongoDB instance.
+Backend is deployed on Render and connected to MongoDB Atlas.
+
+Backend URL:  
+https://rectangle-annotation-app.onrender.com
+
 
 ---
 
 ## 📤 Submission Details
 
-GitHub Repository (Private):  
-https://github.com/<your-username>/rectangle-annotation-app  
+https://github.com/DigishaAdhaduk/rectangle-annotation-app
 
-Hosted Application (Vercel):  
-https://rectangle-annotation-app.vercel.app  
+### 🌐 Hosted Links
+Frontend:  
+https://rectangle-annotation-app.vercel.app/
 
-Collaborator Added:  
+Backend API:  
+https://rectangle-annotation-app.onrender.com
+
+### 👤 Collaborator Added
 anees_ahmad@vecros.com
 
 ---
