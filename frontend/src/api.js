@@ -1,4 +1,4 @@
-const url = "http://localhost:4000"
+const url = "https://rectangle-annotation-app.onrender.com"
 
 export async function login(d) {
   const r = await fetch(url + "/login", {
