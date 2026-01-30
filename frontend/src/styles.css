@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* Login */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #eef2ff, #f8fafc);
+}
+
+.login-card {
+  width: 380px;
+  background: white;
+  padding: 34px;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+.login-card h2 { text-align: center }
+.login-card .sub {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 22px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.login-card .err { color: #ef4444; font-size: 13px }
+.login-card .hint { font-size: 12px; text-align: center; color: #6b7280 }
+
+/* Canvas */
+.app-wrap {
+  min-height: 100vh;
+  background: #eef2f7;
+}
+
+.top-bar {
+  height: 64px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.tools {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+}
+
+.btn.danger { background: #ef4444 }
+.btn.ghost { background: #111827 }
+
+.file-btn {
+  padding: 8px 14px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.main-area {
+  padding: 30px;
+  display: flex;
+  gap: 24px;
+}
+
+.info-card {
+  width: 260px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}

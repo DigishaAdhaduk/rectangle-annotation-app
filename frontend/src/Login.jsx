@@ -10,7 +10,7 @@ export default function Login({ setTok }) {
     setErr("")
     try {
       const r = await login({ u, p })
-      if (r.tok) setTok(r.tok)
+      if (r.tok || r.token) setTok(r.tok || r.token)
       else setErr("invalid credentials")
     } catch {
       setErr("server error")
@@ -18,79 +18,19 @@ export default function Login({ setTok }) {
   }
 
   return (
-    <div style={{
-      height: "100vh",
-      background: "linear-gradient(120deg,#eef2ff,#f8fafc)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-    }}>
-      <div style={{
-        width: 360,
-        padding: 30,
-        background: "white",
-        borderRadius: 10,
-        boxShadow: "0 20px 40px rgba(0,0,0,0.12)"
-      }}>
-        <h2 style={{ textAlign: "center", marginBottom: 20 }}>
-          Rectangle Annotation App
-        </h2>
+    <div className="login-wrap">
+      <div className="login-card">
+        <h2>Rectangle Annotation</h2>
+        <p className="sub">Login to start annotating</p>
 
-        <input
-          placeholder="username"
-          onChange={e => setU(e.target.value)}
-          style={{
-            width: "100%",
-            padding: 12,
-            marginBottom: 14,
-            border: "1px solid #ccc",
-            borderRadius: 6
-          }}
-        />
+        <input placeholder="Username" onChange={e => setU(e.target.value)} />
+        <input type="password" placeholder="Password" onChange={e => setP(e.target.value)} />
 
-        <input
-          type="password"
-          placeholder="password"
-          onChange={e => setP(e.target.value)}
-          style={{
-            width: "100%",
-            padding: 12,
-            marginBottom: 14,
-            border: "1px solid #ccc",
-            borderRadius: 6
-          }}
-        />
+        {err && <div className="err">{err}</div>}
 
-        {err && (
-          <div style={{ color: "red", marginBottom: 10 }}>
-            {err}
-          </div>
-        )}
+        <button onClick={go}>Login</button>
 
-        <button
-          onClick={go}
-          style={{
-            width: "100%",
-            padding: 12,
-            background: "#4f46e5",
-            color: "white",
-            border: "none",
-            borderRadius: 6,
-            fontSize: 16,
-            cursor: "pointer"
-          }}
-        >
-          Login
-        </button>
-
-        <div style={{
-          marginTop: 12,
-          fontSize: 12,
-          textAlign: "center",
-          color: "#555"
-        }}>
-          First login creates your account automatically
-        </div>
+        <span className="hint">First login creates your account automatically</span>
       </div>
     </div>
   )
